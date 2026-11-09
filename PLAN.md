@@ -3,7 +3,7 @@
 Efe'nin SteelSeries Apex 3 TKL klavyesi için SteelSeries GG'siz ışık uygulaması (Windows, tek .exe, ~1,4 MB).
 
 ## Durum (2026-11-09)
-- 1.0 yayında: https://atasoy.dev/indir/klavye-isik-8185ed962678/KlavyeIsik.exe (`/var/www/atasoy-dev/indir/…`, Caddy'ye dokunmadan)
+- 1.0.1 yayında (WebView2Loader.dll exe içine gömülü, bkz. src/yukleyici.rs): https://atasoy.dev/indir/klavye-isik-8185ed962678/KlavyeIsik.exe (`/var/www/atasoy-dev/indir/…`, Caddy'ye dokunmadan)
 - Gerçek klavyede HENÜZ denenmedi — ilk geri bildirim bekleniyor.
 
 ## Yapı

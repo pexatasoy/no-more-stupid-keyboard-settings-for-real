@@ -21,6 +21,8 @@ mod deneme_sunucu;
 mod panel;
 #[cfg(windows)]
 mod tepsi;
+#[cfg(windows)]
+mod yukleyici;
 
 use ortak::Ortak;
 use std::sync::Arc;

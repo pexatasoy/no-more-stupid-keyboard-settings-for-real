@@ -1,6 +1,6 @@
 [package]
 name = "klavye-isik"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2024"
 description = "SteelSeries Apex 3 TKL için hafif ışık ayarı uygulaması"
 
@@ -24,6 +24,7 @@ windows = { version = "0.62.2", features = [
     "Win32_System_Com_StructuredStorage",
     "Win32_System_Variant",
     "Win32_System_Threading",
+    "Win32_System_LibraryLoader",
     "Win32_System_Registry",
     "Win32_UI_WindowsAndMessaging",
     "Win32_Graphics_Dwm",

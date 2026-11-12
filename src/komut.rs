@@ -13,8 +13,10 @@ pub fn durum_json(o: &Ortak, acilis: bool, acilis_sor: bool) -> String {
     let a = o.ayarlar.lock().unwrap().clone();
     json!({
         "ayarlar": a,
-        "hazirTemalar": temalar::hazir(),
-        "efektler": EFEKTLER.iter().map(|e| json!({"id": e.0, "ad": e.1, "renkli": e.2, "muzik": e.3})).collect::<Vec<_>>(),
+        "hazirTemalar": temalar::hazir().into_iter().map(|t| { let e = crate::dil::tema_adi(&t.ad); let mut j = json!(t); j["etiket"] = json!(e); j }).collect::<Vec<_>>(),
+        "efektler": EFEKTLER.iter().map(|e| json!({"id": e.0, "ad": crate::dil::efekt_adi(e.0), "renkli": e.2, "muzik": e.3})).collect::<Vec<_>>(),
+        "dil": crate::dil::kod(),
+        "uygulama": crate::dil::AD,
         "bagli": o.bagli.load(Ordering::SeqCst),
         "acilis": acilis,
         "acilisSor": acilis_sor,

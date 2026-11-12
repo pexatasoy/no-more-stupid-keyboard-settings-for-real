@@ -1,8 +1,14 @@
 [package]
-name = "klavye-isik"
-version = "1.0.1"
+name = "no-more-stupid-keyboard-settings-for-real"
+version = "1.1.0"
 edition = "2024"
-description = "SteelSeries Apex 3 TKL için hafif ışık ayarı uygulaması"
+description = "Lighting for SteelSeries Apex 3 / Apex 3 TKL without SteelSeries GG"
+license = "GPL-2.0-or-later"
+repository = "https://github.com/pexatasoy/no-more-stupid-keyboard-settings-for-real"
+
+[[bin]]
+name = "NoMoreStupidKeyboardSettingsForReal"
+path = "src/main.rs"
 
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
@@ -28,6 +34,7 @@ windows = { version = "0.62.2", features = [
     "Win32_System_Registry",
     "Win32_UI_WindowsAndMessaging",
     "Win32_Graphics_Dwm",
+    "Win32_Globalization",
 ] }
 
 [profile.release]

@@ -108,15 +108,15 @@ pub fn calistir(o: Arc<Ortak>) {
     }
 
     let menu = Menu::new();
-    let ac = MenuItem::new("Klavye Işık’ı aç", true, None);
-    let isik = MenuItem::new("Işıkları kapat", true, None);
-    let sonraki = MenuItem::new("Sıradaki tema\tCtrl+Alt+K", true, None);
-    let cikis = MenuItem::new("Çıkış", true, None);
+    let ac = MenuItem::new(crate::dil::t("Ayarları aç", "Open settings"), true, None);
+    let isik = MenuItem::new(crate::dil::t("Işıkları kapat", "Turn lights off"), true, None);
+    let sonraki = MenuItem::new(crate::dil::t("Sıradaki tema\tCtrl+Alt+K", "Next theme\tCtrl+Alt+K"), true, None);
+    let cikis = MenuItem::new(crate::dil::t("Çıkış", "Quit"), true, None);
     let _ = menu.append_items(&[&ac, &PredefinedMenuItem::separator(), &isik, &sonraki, &PredefinedMenuItem::separator(), &cikis]);
     let tepsi_simgesi = TrayIconBuilder::new()
         .with_menu(Box::new(menu))
         .with_menu_on_left_click(false)
-        .with_tooltip("Klavye Işık")
+        .with_tooltip(crate::dil::AD)
         .with_icon(Icon::from_rgba(tepsi::SIMGE.to_vec(), 32, 32).expect("simge"))
         .build()
         .map_err(|e| crate::gunluk!("tepsi simgesi kurulamadı: {}", e))
@@ -226,14 +226,15 @@ pub fn calistir(o: Arc<Ortak>) {
                 (a.acik, a.kisayollar)
             };
             kisayol.esitle(kis);
-            let _ = isik.set_text(if acik { "Işıkları kapat" } else { "Işıkları aç" });
+            let _ = isik.set_text(if acik { crate::dil::t("Işıkları kapat", "Turn lights off") } else { crate::dil::t("Işıkları aç", "Turn lights on") });
             let yeni_ipucu = {
                 let a = o.ayarlar.lock().unwrap();
-                let bagli = if o.bagli.load(Ordering::SeqCst) { "" } else { " · klavye bulunamadı" };
+                let bagli = if o.bagli.load(Ordering::SeqCst) { "" } else { crate::dil::t(" · klavye bulunamadı", " · keyboard not found") };
+                let ad = crate::dil::AD;
                 match (&a.son_tema, a.acik) {
-                    (_, false) => format!("Klavye Işık — kapalı{}", bagli),
-                    (Some(t), _) => format!("Klavye Işık — {}{}", t, bagli),
-                    (None, _) => format!("Klavye Işık{}", bagli),
+                    (_, false) => format!("{} — {}{}", ad, crate::dil::t("kapalı", "off"), bagli),
+                    (Some(t), _) => format!("{} — {}{}", ad, crate::dil::tema_adi(t), bagli),
+                    (None, _) => format!("{}{}", ad, bagli),
                 }
             };
             if yeni_ipucu != ipucu {
@@ -284,7 +285,7 @@ fn gizle(panel: &mut Option<Panel>, gorunur: &mut bool, gizlenme: &mut Option<In
 fn olustur(hedef: &EventLoopWindowTarget<Olay>, vekil: &EventLoopProxy<Olay>, baglam: &mut WebContext) -> Option<Panel> {
     let simge = tao::window::Icon::from_rgba(tepsi::SIMGE.to_vec(), 32, 32).ok();
     let pencere = WindowBuilder::new()
-        .with_title("Klavye Işık")
+        .with_title(crate::dil::AD)
         .with_decorations(false)
         .with_resizable(false)
         .with_inner_size(LogicalSize::new(GENISLIK, YUKSEKLIK))
@@ -323,7 +324,7 @@ fn olustur(hedef: &EventLoopWindowTarget<Olay>, vekil: &EventLoopProxy<Olay>, ba
     }
     let v = vekil.clone();
     let web = WebViewBuilder::new_with_web_context(baglam)
-        .with_html(HTML)
+        .with_html(HTML.replacen("__DIL__", crate::dil::kod(), 1))
         .with_background_color((11, 11, 18, 255))
         .with_devtools(false)
         .with_ipc_handler(move |istek| {
@@ -339,15 +340,13 @@ fn olustur(hedef: &EventLoopWindowTarget<Olay>, vekil: &EventLoopProxy<Olay>, ba
         }
         Err(e) => {
             crate::gunluk!("WebView2 açılamadı: {}", e);
-            use windows::core::w;
             use windows::Win32::UI::WindowsAndMessaging::*;
             unsafe {
-                MessageBoxW(
-                    None,
-                    w!("Ayar ekranı için Microsoft WebView2 gerekiyor (Windows 11'de hazır gelir).\n\nAçılacak sayfadan “Evergreen Bootstrapper”ı kurup Klavye Işık'ı yeniden aç. Klavyenin ışığı bu arada çalışmaya devam eder."),
-                    w!("Klavye Işık"),
-                    MB_OK | MB_ICONINFORMATION,
+                let metin = crate::dil::t(
+                    "Ayar ekranı için Microsoft WebView2 gerekiyor (Windows 11'de hazır gelir).\n\nAçılacak sayfadan “Evergreen Bootstrapper”ı kurup programı yeniden aç. Klavyenin ışığı bu arada çalışmaya devam eder.",
+                    "The settings window needs Microsoft WebView2 (it comes with Windows 11).\n\nInstall the “Evergreen Bootstrapper” from the page that opens, then start the app again. Your keyboard lighting keeps working in the meantime.",
                 );
+                MessageBoxW(None, &windows::core::HSTRING::from(metin), &windows::core::HSTRING::from(crate::dil::AD), MB_OK | MB_ICONINFORMATION);
             }
             let _ = std::process::Command::new("explorer.exe").arg("https://developer.microsoft.com/microsoft-edge/webview2/").spawn();
             None

@@ -1,5 +1,5 @@
 //! Yalnız Linux'ta, geliştirme denemesi için: panel.html'i gerçek motorla tarayıcıda açar.
-//! http://127.0.0.1:4911/  — wry'nin `window.ipc.postMessage` köprüsü fetch ile taklit edilir.
+//! http://127.0.0.1:4917/  — wry'nin `window.ipc.postMessage` köprüsü fetch ile taklit edilir.
 
 use crate::komut;
 use crate::ortak::Ortak;
@@ -16,7 +16,7 @@ setInterval(()=>fetch('/durum').then(r=>r.json()).then(d=>window.durum&&window.d
 </script>"#;
 
 pub fn calistir(o: Arc<Ortak>) {
-    let port = std::env::var("KI_PORT").unwrap_or_else(|_| "4911".into());
+    let port = std::env::var("NMSKS_PORT").unwrap_or_else(|_| "4917".into());
     let dinle = TcpListener::bind(format!("127.0.0.1:{}", port)).expect("port");
     eprintln!("deneme: http://127.0.0.1:{}/", port);
     for akis in dinle.incoming().flatten() {
@@ -49,7 +49,7 @@ pub fn calistir(o: Arc<Ortak>) {
                 }
                 "/durum" => ("application/json", komut::durum_json(&o, false, std::env::var_os("KI_ILK").is_some())),
                 "/kare" => ("application/json", komut::kare_json(&o)),
-                _ => ("text/html; charset=utf-8", HTML.replacen("<head>", &format!("<head>{}", KOPRU), 1)),
+                _ => ("text/html; charset=utf-8", HTML.replacen("__DIL__", crate::dil::kod(), 1).replacen("<head>", &format!("<head>{}", KOPRU), 1)),
             };
             let mut w = &akis;
             let _ = write!(w, "HTTP/1.1 200 OK\r\nContent-Type: {}\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{}", tur, cevap.len(), cevap);

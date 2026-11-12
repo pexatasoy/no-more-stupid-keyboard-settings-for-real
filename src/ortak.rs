@@ -42,7 +42,7 @@ impl Ortak {
     }
 }
 
-/// Günlük: %APPDATA%\KlavyeIsik\gunluk.txt (1 MB'ı geçince baştan başlar).
+/// Günlük: %APPDATA%\NoMoreStupidKeyboardSettingsForReal\gunluk.txt (1 MB'ı geçince baştan başlar).
 #[macro_export]
 macro_rules! gunluk {
     ($($a:tt)*) => {{

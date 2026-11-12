@@ -1,4 +1,5 @@
-//! Kalıcı ayarlar: %APPDATA%\KlavyeIsik\ayarlar.json (Linux'ta deneme için ~/.config/klavye-isik).
+//! Kalıcı ayarlar: %APPDATA%\NoMoreStupidKeyboardSettingsForReal\ayarlar.json
+//! (Linux'ta deneme için ~/.config/no-more-stupid-keyboard-settings). 1.0.x'in %APPDATA%\KlavyeIsik klasörü ilk açılışta taşınır.
 //!
 //! Klavyenin kendi hafızası yok (fişten çekilince gökkuşağına döner), o yüzden asıl kayıt burası:
 //! uygulama her açılışta ve klavye her takıldığında buradakini klavyeye yeniden basar.
@@ -89,7 +90,19 @@ pub fn klasor() -> PathBuf {
     let kok = std::env::var_os("APPDATA").map(PathBuf::from).unwrap_or_else(|| PathBuf::from("."));
     #[cfg(not(windows))]
     let kok = std::env::var_os("HOME").map(|h| PathBuf::from(h).join(".config")).unwrap_or_else(|| PathBuf::from("."));
-    let k = kok.join(if cfg!(windows) { "KlavyeIsik" } else { "klavye-isik" });
+    let k = kok.join(if cfg!(windows) { crate::dil::KIMLIK } else { "no-more-stupid-keyboard-settings" });
+    static TASINDI: std::sync::Once = std::sync::Once::new();
+    TASINDI.call_once(|| {
+        let eski = kok.join(if cfg!(windows) { crate::dil::ESKI_KIMLIK } else { "klavye-isik" });
+        if !k.exists() && eski.is_dir() && std::fs::rename(&eski, &k).is_err() {
+            // Klasör kilitliyse (ör. WebView2 hâlâ tutuyor) yalnız önemli dosyaları kopyala:
+            // renkler/temalar ve "açılışta sor" cevabı. Eski klasör yerinde kalır, zararı yok.
+            let _ = std::fs::create_dir_all(&k);
+            for f in ["ayarlar.json", ".acilis-soruldu"] {
+                let _ = std::fs::copy(eski.join(f), k.join(f));
+            }
+        }
+    });
     let _ = std::fs::create_dir_all(&k);
     k
 }

@@ -4,7 +4,7 @@
 //! WebView2Loader.dll'den içe aktarır: DLL exe'nin yanında yoksa Windows programı hiç açmaz.
 //! Çözüm: o işlevin içe aktarma işaretçisini (`__imp_…`) burada kendimiz tanımlıyoruz; bağlayıcı yerel
 //! tanımı bulunca DLL'yi içe aktarma tablosuna hiç koymaz. Çağrı gelince gömülü DLL
-//! %APPDATA%\KlavyeIsik\WebView2Loader.dll'ye yazılır, oradan yüklenip asıl işleve aktarılır.
+//! %APPDATA%\NoMoreStupidKeyboardSettingsForReal\WebView2Loader.dll'ye yazılır, oradan yüklenip asıl işleve aktarılır.
 
 use std::ffi::c_void;
 use std::sync::OnceLock;

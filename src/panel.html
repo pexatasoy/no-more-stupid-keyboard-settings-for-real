@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="tr">
+<html lang="__DIL__">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Klavye Işık</title>
+<title>NoMoreStupidKeyboardSettingsForReal</title>
 <style>
 :root{
   --bg:#0b0b12; --yuzey:#14141f; --yuzey2:#1b1b29; --cizgi:#ffffff14; --cizgi2:#ffffff24;
@@ -35,6 +35,7 @@ input{font:inherit;color:inherit}
 /* Başlık çubuğu */
 #ust{position:relative;height:52px;display:flex;align-items:center;gap:14px;padding:0 10px 0 18px;z-index:5}
 .logo{display:flex;align-items:center;gap:10px;font-family:"Segoe UI Variable Display","Segoe UI",system-ui;font-weight:650;font-size:15px;letter-spacing:.2px;pointer-events:none}
+.logo em{font-style:italic;font-weight:700;color:var(--vurgu);margin-left:1px}
 .logo i{width:22px;height:14px;border-radius:4px;display:block;background:linear-gradient(90deg,var(--z0),var(--z2),var(--z4),var(--z6),var(--z7));box-shadow:0 0 14px -2px var(--z3)}
 .hap{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--soluk);padding:5px 11px 5px 9px;border-radius:99px;background:#ffffff0a;border:1px solid var(--cizgi);pointer-events:none}
 .hap b{width:7px;height:7px;border-radius:50%;background:#ff5d6c;box-shadow:0 0 0 3px #ff5d6c2a}
@@ -199,27 +200,27 @@ h3{font-size:11.5px;font-weight:650;letter-spacing:.8px;text-transform:uppercase
 <div id="ortam"></div>
 
 <div id="ust">
-  <div class="logo"><i></i>Klavye Işık</div>
-  <div class="hap" id="hap"><b></b><span>Klavye aranıyor…</span></div>
+  <div class="logo"><i></i><span>NoMoreStupidKeyboardSettings<em>ForReal</em></span></div>
+  <div class="hap" id="hap"><b></b><span data-en="Looking for keyboard…">Klavye aranıyor…</span></div>
   <div id="bosluk"></div>
-  <button id="guc" title="Işıkları aç/kapat (Ctrl+Alt+L)"><span class="ikon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 3v8"/><path d="M6.3 7.3a8 8 0 1 0 11.4 0"/></svg></span><span id="guc-yazi">Açık</span></button>
-  <button class="pbtn" id="kucult" title="Küçült"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6h8" stroke="currentColor" stroke-width="1.3"/></svg></button>
-  <button class="pbtn kapat" id="kapat" title="Kapat (tepside çalışmaya devam eder)"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7" stroke="currentColor" stroke-width="1.3"/></svg></button>
+  <button id="guc" title="Işıkları aç/kapat (Ctrl+Alt+L)" data-en-title="Lights on/off (Ctrl+Alt+L)"><span class="ikon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 3v8"/><path d="M6.3 7.3a8 8 0 1 0 11.4 0"/></svg></span><span id="guc-yazi">Açık</span></button>
+  <button class="pbtn" id="kucult" title="Küçült" data-en-title="Minimize"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6h8" stroke="currentColor" stroke-width="1.3"/></svg></button>
+  <button class="pbtn kapat" id="kapat" title="Kapat (tepside çalışmaya devam eder)" data-en-title="Close (keeps running in the tray)"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7" stroke="currentColor" stroke-width="1.3"/></svg></button>
 </div>
 
 <div id="soru">
-  <p><b>Windows açılınca Klavye Işık da açılsın mı?</b><br><span>Klavye her yeniden başlatmada kendi gökkuşağına döner; açık kalırsa senin rengini hemen geri basar. Pencere açılmaz, saatin yanında durur.</span></p>
-  <button class="btn" data-acilis="1">Evet, açılsın</button>
-  <button class="btn ikincil" data-acilis="0">Hayır</button>
+  <p data-en-html="&lt;b&gt;Start with Windows?&lt;/b&gt;&lt;br&gt;&lt;span&gt;The keyboard goes back to its own rainbow after every restart. If the app is running, it puts your colors right back. No window opens, it just sits next to the clock.&lt;/span&gt;"><b>Windows açılınca Klavye Işık da açılsın mı?</b><br><span>Klavye her yeniden başlatmada kendi gökkuşağına döner; açık kalırsa senin rengini hemen geri basar. Pencere açılmaz, saatin yanında durur.</span></p>
+  <button class="btn" data-acilis="1" data-en="Yes, start it">Evet, açılsın</button>
+  <button class="btn ikincil" data-acilis="0" data-en="No">Hayır</button>
 </div>
 
 <div id="sahne">
-  <div id="klavye"><div id="plaka"></div><div id="tuslar"></div><div id="kapali">Işıklar kapalı</div></div>
+  <div id="klavye"><div id="plaka"></div><div id="tuslar"></div><div id="kapali" data-en="Lights off">Işıklar kapalı</div></div>
   <div id="serit">
     <div id="bolgeler"></div>
-    <button class="yazi-btn" id="tumu">Tümü</button>
-    <div id="ipucu" title="Ctrl ile birden fazla bölge seçebilirsin">Tuşa tıkla, bölgesi seçilsin</div>
-    <div class="parlak" title="Parlaklık (klavyede Fn+F11/F12)">
+    <button class="yazi-btn" id="tumu" data-en="All">Tümü</button>
+    <div id="ipucu" title="Ctrl ile birden fazla bölge seçebilirsin" data-en-title="Hold Ctrl to pick more than one zone" data-en="Click a key to select its zone">Tuşa tıkla, bölgesi seçilsin</div>
+    <div class="parlak" title="Parlaklık (klavyede Fn+F11/F12)" data-en-title="Brightness (Fn+F11/F12 on the keyboard)">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       <input type="range" id="parlaklik" min="0" max="16" step="1">
       <span id="parlaklik-yazi">100%</span>
@@ -229,12 +230,12 @@ h3{font-size:11.5px;font-weight:650;letter-spacing:.8px;text-transform:uppercase
 
 <div id="alt">
   <div id="sekmeler">
-    <button class="sk aktif" data-s="renkler"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="8" cy="10" r="1.5" fill="currentColor"/><circle cx="12" cy="7.5" r="1.5" fill="currentColor"/><circle cx="16" cy="10" r="1.5" fill="currentColor"/></svg>Renkler</button>
-    <button class="sk" data-s="efektler"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12c2.5-6 5-6 7.5 0s5 6 7.5 0 3.5-4 5-2"/></svg>Efektler</button>
-    <button class="sk" data-s="temalar"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>Temalar</button>
-    <button class="sk" data-s="muzik"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>Müzik</button>
-    <button class="sk" data-s="ayarlar"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Ayarlar</button>
-    <div id="kisayol-not"><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> sıradaki tema</div>
+    <button class="sk aktif" data-s="renkler"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="8" cy="10" r="1.5" fill="currentColor"/><circle cx="12" cy="7.5" r="1.5" fill="currentColor"/><circle cx="16" cy="10" r="1.5" fill="currentColor"/></svg><span data-en="Colors">Renkler</span></button>
+    <button class="sk" data-s="efektler"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12c2.5-6 5-6 7.5 0s5 6 7.5 0 3.5-4 5-2"/></svg><span data-en="Effects">Efektler</span></button>
+    <button class="sk" data-s="temalar"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg><span data-en="Themes">Temalar</span></button>
+    <button class="sk" data-s="muzik"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg><span data-en="Music">Müzik</span></button>
+    <button class="sk" data-s="ayarlar"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span data-en="Settings">Ayarlar</span></button>
+    <div id="kisayol-not" data-en-html="&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;K&lt;/kbd&gt; next theme"><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> sıradaki tema</div>
   </div>
 
   <section class="sayfa aktif" id="s-renkler">
@@ -252,14 +253,14 @@ h3{font-size:11.5px;font-weight:650;letter-spacing:.8px;text-transform:uppercase
         </div>
       </div>
       <div>
-        <h3>Soldan sağa geçiş</h3>
+        <h3 data-en="Left-to-right gradient">Soldan sağa geçiş</h3>
         <div class="gecis">
-          <button class="durak" id="durak-a" title="Başlangıç rengi"></button>
+          <button class="durak" id="durak-a" title="Başlangıç rengi" data-en-title="Start color"></button>
           <div class="ok" id="gecis-ok"></div>
-          <button class="durak" id="durak-b" title="Bitiş rengi"></button>
-          <button class="btn ikincil" id="gecis-uygula">Bütün klavyeye uygula</button>
+          <button class="durak" id="durak-b" title="Bitiş rengi" data-en-title="End color"></button>
+          <button class="btn ikincil" id="gecis-uygula" data-en="Apply to the whole keyboard">Bütün klavyeye uygula</button>
         </div>
-        <p class="not" style="margin-top:8px">Başlangıç ya da bitiş kutusuna tıkla, soldaki seçiciyle rengini değiştir.</p>
+        <p class="not" style="margin-top:8px" data-en="Click the start or end box, then set its color with the picker on the left.">Başlangıç ya da bitiş kutusuna tıkla, soldaki seçiciyle rengini değiştir.</p>
       </div>
       <div class="uyari" id="renk-uyari" style="display:none;margin-top:0"></div>
     </div>
@@ -276,18 +277,18 @@ h3{font-size:11.5px;font-weight:650;letter-spacing:.8px;text-transform:uppercase
 
   <section class="sayfa" id="s-muzik">
     <div style="display:flex;flex-direction:column;gap:12px">
-      <button class="mod-kart" data-mod="spektrum"><b>Spektrum</b><span>Soldan sağa bastan tize: her bölge kendi frekansında ritimle yanar.</span></button>
-      <button class="mod-kart" data-mod="nabiz"><b>Nabız</b><span>Bütün klavye bas vuruşlarıyla parlar, her vuruşta renk değişir.</span></button>
+      <button class="mod-kart" data-mod="spektrum"><b data-en="Spectrum">Spektrum</b><span data-en="Bass to treble, left to right: each zone lights up to its own slice of the sound.">Soldan sağa bastan tize: her bölge kendi frekansında ritimle yanar.</span></button>
+      <button class="mod-kart" data-mod="nabiz"><b data-en="Pulse">Nabız</b><span data-en="The whole keyboard flashes with the bass and changes color on every beat.">Bütün klavye bas vuruşlarıyla parlar, her vuruşta renk değişir.</span></button>
     </div>
     <div style="flex:1;display:flex;flex-direction:column;gap:14px">
       <div id="olcer"></div>
-      <div class="satir"><label>Duyarlılık</label><input type="range" id="hassasiyet" min="0.3" max="3" step="0.05"><span id="hassasiyet-yazi" style="width:40px;text-align:right;color:var(--soluk)"></span></div>
+      <div class="satir"><label data-en="Sensitivity">Duyarlılık</label><input type="range" id="hassasiyet" min="0.3" max="3" step="0.05"><span id="hassasiyet-yazi" style="width:40px;text-align:right;color:var(--soluk)"></span></div>
       <div>
-        <h3 style="margin-bottom:8px">Renkler</h3>
+        <h3 style="margin-bottom:8px" data-en="Colors">Renkler</h3>
         <div class="paletcik" id="muzik-palet"></div>
       </div>
     </div>
-    <div style="width:230px;flex:none" class="not">
+    <div style="width:230px;flex:none" class="not" data-en-html="&lt;h3&gt;How does it work?&lt;/h3&gt;It listens to everything your PC plays: Spotify, YouTube, games. The microphone is never used and nothing is recorded.&lt;br&gt;&lt;br&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;M&lt;/kbd&gt; switches to music mode and back.">
       <h3>Nasıl çalışır?</h3>
       Bilgisayardan çıkan her sesi dinler: Spotify, YouTube, oyunlar. Mikrofon kullanılmaz, hiçbir şey kaydedilmez.<br><br>
       <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd> ile müzik moduna geçip geri dönebilirsin.
@@ -296,20 +297,20 @@ h3{font-size:11.5px;font-weight:650;letter-spacing:.8px;text-transform:uppercase
 
   <section class="sayfa" id="s-ayarlar">
     <div style="flex:1">
-      <div class="ayar" id="ayar-acilis"><div><b>Windows açılınca başlasın</b><span>Pencere açılmaz; saatin yanında durur, ışığı geri basar.</span></div><button class="sw" id="sw-acilis"></button></div>
-      <div class="ayar"><div><b>Kısayol tuşları</b><span>Hangi programdayken olursan ol çalışır.</span></div><button class="sw" id="sw-kisayol"></button></div>
-      <div class="ayar"><div><b>Programı tamamen kapat</b><span>Pencereyi kapatmak programı kapatmaz. Kapatırsan klavye son rengiyle kalır, fişten çekilince gökkuşağına döner.</span></div><button class="btn ikincil" id="cikis">Kapat</button></div>
+      <div class="ayar" id="ayar-acilis"><div><b data-en="Start with Windows">Windows açılınca başlasın</b><span data-en="No window opens. It sits next to the clock and puts your lighting back.">Pencere açılmaz; saatin yanında durur, ışığı geri basar.</span></div><button class="sw" id="sw-acilis"></button></div>
+      <div class="ayar"><div><b data-en="Keyboard shortcuts">Kısayol tuşları</b><span data-en="Work in whatever app you are in.">Hangi programdayken olursan ol çalışır.</span></div><button class="sw" id="sw-kisayol"></button></div>
+      <div class="ayar"><div><b data-en="Quit completely">Programı tamamen kapat</b><span data-en="Closing the window does not quit the app. If you quit, the keyboard keeps its last color until it is unplugged, then goes back to its rainbow.">Pencereyi kapatmak programı kapatmaz. Kapatırsan klavye son rengiyle kalır, fişten çekilince gökkuşağına döner.</span></div><button class="btn ikincil" id="cikis" data-en="Quit">Kapat</button></div>
     </div>
     <div style="width:320px;flex:none;padding-left:22px;border-left:1px solid var(--cizgi)">
-      <h3>Kısayollar</h3>
+      <h3 data-en="Shortcuts">Kısayollar</h3>
       <div class="kisalist">
-        <span><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd></span><span>Sıradaki tema</span>
-        <span><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>J</kbd></span><span>Önceki tema</span>
-        <span><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd></span><span>Işıkları aç / kapat</span>
-        <span><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd></span><span>Müzik moduna geç / geri dön</span>
-        <span><kbd>Fn</kbd>+<kbd>F11</kbd>/<kbd>F12</kbd></span><span>Parlaklık (klavyenin kendisi)</span>
+        <span><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd></span><span data-en="Next theme">Sıradaki tema</span>
+        <span><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>J</kbd></span><span data-en="Previous theme">Önceki tema</span>
+        <span><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd></span><span data-en="Lights on / off">Işıkları aç / kapat</span>
+        <span><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd></span><span data-en="Music mode on / back">Müzik moduna geç / geri dön</span>
+        <span><kbd>Fn</kbd>+<kbd>F11</kbd>/<kbd>F12</kbd></span><span data-en="Brightness (handled by the keyboard)">Parlaklık (klavyenin kendisi)</span>
       </div>
-      <p class="not" style="margin-top:16px">Sürüm <span id="surum"></span> · <a href="#" id="gunluk" style="color:var(--soluk)">günlüğü aç</a></p>
+      <p class="not" style="margin-top:16px"><span data-en="Version">Sürüm</span> <span id="surum"></span> · <a href="#" id="gunluk" style="color:var(--soluk)" data-en="open log">günlüğü aç</a></p>
     </div>
   </section>
 </div>
@@ -317,6 +318,13 @@ h3{font-size:11.5px;font-weight:650;letter-spacing:.8px;text-transform:uppercase
 <script>
 "use strict";
 const $ = s => document.querySelector(s);
+const EN = document.documentElement.lang === "en";
+const T = (tr, en) => EN ? en : tr;
+if (EN) {
+  document.querySelectorAll("[data-en]").forEach(e => e.textContent = e.dataset.en);
+  document.querySelectorAll("[data-en-html]").forEach(e => e.innerHTML = e.dataset.enHtml);
+  document.querySelectorAll("[data-en-title]").forEach(e => e.title = e.dataset.enTitle);
+}
 const gonder = o => { try { window.ipc.postMessage(JSON.stringify(o)); } catch (e) {} };
 
 /* ---------- Renk yardımcıları ---------- */
@@ -338,7 +346,7 @@ function gecis(a, b, n = 8) {
   return Array.from({ length: n }, (_, i) => { const k = i / (n - 1); return rgbHex(...A.map((x, j) => x + (B[j] - x) * k)); });
 }
 
-/* ---------- Klavye çizimi (Türkçe Q, TKL) ---------- */
+/* ---------- Klavye çizimi (TKL: Türkçe arayüzde Türkçe Q, İngilizcede ABD ANSI) ---------- */
 // [etiket, x, y, genişlik, (yükseklik)] — birim: tuş
 const DUZEN = [];
 (() => {
@@ -349,6 +357,7 @@ const DUZEN = [];
   ["F9","F10","F11","F12"].forEach((e, i) => s(e, 11 + i, 0));
   ["PrtSc","ScrLk","Pause"].forEach((e, i) => s(e, 15.25 + i, 0));
   const y1 = 1.25;
+  if (EN) { abd(s, y1); return; }
   ['"',"1","2","3","4","5","6","7","8","9","0","*","-"].forEach((e, i) => s(e, i, y1));
   s("Backspace", 13, y1, 2);
   ["Ins","Home","PgUp"].forEach((e, i) => s(e, 15.25 + i, y1));
@@ -370,6 +379,28 @@ const DUZEN = [];
   [["Ctrl",1.25],["Win",1.25],["Alt",1.25],["",6.25],["AltGr",1.25],["SS",1.25],["Menu",1.25],["Ctrl",1.25]].reduce((x, [e, w]) => { s(e, x, y5, w); return x + w; }, 0);
   ["←","↓","→"].forEach((e, i) => s(e, 15.25 + i, y5));
 })();
+function abd(s, y1) {
+  ["`","1","2","3","4","5","6","7","8","9","0","-","="].forEach((e, i) => s(e, i, y1));
+  s("Backspace", 13, y1, 2);
+  ["Ins","Home","PgUp"].forEach((e, i) => s(e, 15.25 + i, y1));
+  const y2 = 2.25;
+  s("Tab", 0, y2, 1.5);
+  ["Q","W","E","R","T","Y","U","I","O","P","[","]"].forEach((e, i) => s(e, 1.5 + i, y2));
+  s("\\", 13.5, y2, 1.5);
+  ["Del","End","PgDn"].forEach((e, i) => s(e, 15.25 + i, y2));
+  const y3 = 3.25;
+  s("Caps", 0, y3, 1.75);
+  ["A","S","D","F","G","H","J","K","L",";","'"].forEach((e, i) => s(e, 1.75 + i, y3));
+  s("Enter", 12.75, y3, 2.25);
+  const y4 = 4.25;
+  s("Shift", 0, y4, 2.25);
+  ["Z","X","C","V","B","N","M",",",".","/"].forEach((e, i) => s(e, 2.25 + i, y4));
+  s("Shift", 12.25, y4, 2.75);
+  s("↑", 16.25, y4);
+  const y5 = 5.25;
+  [["Ctrl",1.25],["Win",1.25],["Alt",1.25],["",6.25],["Alt",1.25],["SS",1.25],["Menu",1.25],["Ctrl",1.25]].reduce((x, [e, w]) => { s(e, x, y5, w); return x + w; }, 0);
+  ["←","↓","→"].forEach((e, i) => s(e, 15.25 + i, y5));
+}
 const GEN = 18.25, YUK = 6.25;
 let secili = new Set([0,1,2,3,4,5,6,7]);
 
@@ -397,7 +428,7 @@ function klavyeCiz() {
 function secimiGoster() {
   document.querySelectorAll(".t").forEach(t => t.classList.toggle("sec", secili.has(+t.dataset.z) && secili.size < 8));
   document.querySelectorAll(".b").forEach(b => b.classList.toggle("sec", secili.has(+b.dataset.z)));
-  $("#renk-baslik").textContent = secili.size === 8 ? "Bütün klavyenin rengi" : secili.size === 1 ? `${[...secili][0] + 1}. bölgenin rengi` : `${secili.size} bölgenin rengi`;
+  $("#renk-baslik").textContent = secili.size === 8 ? T("Bütün klavyenin rengi", "Color of the whole keyboard") : secili.size === 1 ? T(`${[...secili][0] + 1}. bölgenin rengi`, `Color of zone ${[...secili][0] + 1}`) : T(`${secili.size} bölgenin rengi`, `Color of ${secili.size} zones`);
   hedef = "bolge";
   durakGoster();
   seciciyiBolgedenAl();
@@ -423,7 +454,7 @@ window.durum = d => {
 window.kare = d => {
   d.r.forEach((c, i) => document.documentElement.style.setProperty("--z" + i, c));
   $("#hap").classList.toggle("bagli", d.bagli);
-  $("#hap span").textContent = d.bagli ? "Apex 3 TKL bağlı" : "Klavye bulunamadı · USB'yi kontrol et";
+  $("#hap span").textContent = d.bagli ? T("Apex 3 TKL bağlı", "Apex 3 TKL connected") : T("Klavye bulunamadı · USB'yi kontrol et", "Keyboard not found · check the USB cable");
   const o = $("#olcer");
   if (o.children.length === 8) d.ses.forEach((x, i) => { o.children[i].style.height = (6 + x * 94) + "%"; });
 };
@@ -433,7 +464,7 @@ function ciz() {
   const a = S.ayarlar, sh = a.sahne;
   document.body.classList.toggle("kapali", !a.acik);
   $("#guc").classList.toggle("kapali", !a.acik);
-  $("#guc-yazi").textContent = a.acik ? "Açık" : "Kapalı";
+  $("#guc-yazi").textContent = a.acik ? T("Açık", "On") : T("Kapalı", "Off");
   document.documentElement.style.setProperty("--b", a.acik ? (0.25 + 0.75 * a.parlaklik / 16) : 0);
   const p = $("#parlaklik");
   p.value = a.parlaklik; araliK(p);
@@ -460,7 +491,7 @@ function ciz() {
 
   const ef = S.efektler.find(e => e.id === sh.efekt);
   const uy = $("#renk-uyari");
-  if (ef && !ef.renkli) { uy.style.display = ""; uy.textContent = `Şu an “${ef.ad}” efekti açık ve bölge renklerini kullanmıyor. Bir renk seçersen sabit renge geçilir.`; }
+  if (ef && !ef.renkli) { uy.style.display = ""; uy.textContent = T(`Şu an “${ef.ad}” efekti açık ve bölge renklerini kullanmıyor. Bir renk seçersen sabit renge geçilir.`, `“${ef.ad}” is on and doesn't use the zone colors. Picking a color switches to Static.`); }
   else uy.style.display = "none";
 
   efektleriCiz();
@@ -552,11 +583,16 @@ const IKON = {
   nabiz: '<path d="M2 12h4l2-5 4 10 2-5h8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>',
   donanim: '<rect x="6" y="6" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
 };
-const ACIKLAMA = {
+const ACIKLAMA = EN ? {
+  sabit: "Zone colors", nefes: "Fades in and out", dalga: "Accent sweeps across", gokkusagi: "Flowing rainbow",
+  dongu: "One color, cycling", yildiz: "Random sparkles", ates: "Flickering flame", spektrum: "Follows the sound",
+  nabiz: "Hits with the bass", donanim: "Keyboard's own effect",
+} : {
   sabit: "Bölge renkleri", nefes: "Yavaşça söner, yanar", dalga: "Vurgu rengi kayar", gokkusagi: "Akan gökkuşağı",
   dongu: "Tek renk, döner", yildiz: "Rastgele parıltılar", ates: "Titreşen alev", spektrum: "Sese göre bölgeler",
   nabiz: "Basla birlikte", donanim: "Klavyenin kendi efekti",
 };
+const muzikOneki = ad => ad.replace(/^(Müzik|Music) · /, "");
 const VURGU = ["#ffffff","#ffe600","#ffb000","#ff2e00","#ff00c8","#8a00ff","#00e5ff","#00ff6a"];
 
 function efektleriCiz() {
@@ -565,7 +601,7 @@ function efektleriCiz() {
   S.efektler.forEach(e => {
     const b = document.createElement("button");
     b.className = "ek" + (e.id === sh.efekt ? " aktif" : "");
-    b.innerHTML = `<span class="ik"><svg width="20" height="20" viewBox="0 0 24 24">${IKON[e.id] || ""}</svg></span><span>${e.ad.replace("Müzik · ", "")}<small>${ACIKLAMA[e.id] || ""}</small></span>`;
+    b.innerHTML = `<span class="ik"><svg width="20" height="20" viewBox="0 0 24 24">${IKON[e.id] || ""}</svg></span><span>${muzikOneki(e.ad)}<small>${ACIKLAMA[e.id] || ""}</small></span>`;
     b.onclick = () => { sahne().efekt = e.id; gonder({ k: "sahne", v: { efekt: e.id } }); efektleriCiz(); };
     iz.appendChild(b);
   });
@@ -575,13 +611,13 @@ function efektleriCiz() {
   const vurgulu = ["dalga", "yildiz", "ates"].includes(id);
   const ef = S.efektler.find(e => e.id === id);
   let h = "";
-  if (hizli) h += `<div class="satir"><label>Hız</label><input type="range" id="hiz" min="0.2" max="3" step="0.05" value="${sh.hiz}"></div>`;
-  if (yonlu) h += `<div class="satir"><label>Yön</label><div class="ikili"><button data-ters="0" class="${sh.ters ? "" : "aktif"}">Soldan sağa</button><button data-ters="1" class="${sh.ters ? "aktif" : ""}">Sağdan sola</button></div></div>`;
-  if (vurgulu) h += `<div class="satir" style="align-items:flex-start"><label style="padding-top:3px">${id === "ates" ? "Alev ucu" : id === "yildiz" ? "Parıltı" : "Dalga"}</label><div class="vurgular">${VURGU.map(c => `<button class="p${c === sh.vurgu ? " aktif" : ""}" data-v="${c}" style="--c:${c}"></button>`).join("")}</div></div>`;
-  if (ef && ef.renkli && !ef.muzik && id !== "sabit") h += `<p class="not">Zemin renkleri bölge renkleridir. <a href="#" data-git="renkler" style="color:var(--vurgu)">Renkler</a> sekmesinden değiştirebilirsin.</p>`;
-  if (id === "donanim") h += `<p class="not">Klavyenin içine gömülü dalga. Program kapalıyken de çalışır, hızı ve rengi değiştirilemez.</p>`;
-  if (ef && ef.muzik) h += `<p class="not">Ayarları <a href="#" data-git="muzik" style="color:var(--vurgu)">Müzik</a> sekmesinde.</p>`;
-  if (id === "sabit") h += `<p class="not">Her bölge kendi renginde sabit yanar. Renkleri <a href="#" data-git="renkler" style="color:var(--vurgu)">Renkler</a> sekmesinden seç.</p>`;
+  if (hizli) h += `<div class="satir"><label>${T("Hız", "Speed")}</label><input type="range" id="hiz" min="0.2" max="3" step="0.05" value="${sh.hiz}"></div>`;
+  if (yonlu) h += `<div class="satir"><label>${T("Yön", "Direction")}</label><div class="ikili"><button data-ters="0" class="${sh.ters ? "" : "aktif"}">${T("Soldan sağa", "Left to right")}</button><button data-ters="1" class="${sh.ters ? "aktif" : ""}">${T("Sağdan sola", "Right to left")}</button></div></div>`;
+  if (vurgulu) h += `<div class="satir" style="align-items:flex-start"><label style="padding-top:3px">${id === "ates" ? T("Alev ucu", "Flame tip") : id === "yildiz" ? T("Parıltı", "Sparkle") : T("Dalga", "Wave")}</label><div class="vurgular">${VURGU.map(c => `<button class="p${c === sh.vurgu ? " aktif" : ""}" data-v="${c}" style="--c:${c}"></button>`).join("")}</div></div>`;
+  if (ef && ef.renkli && !ef.muzik && id !== "sabit") h += T(`<p class="not">Zemin renkleri bölge renkleridir. <a href="#" data-git="renkler" style="color:var(--vurgu)">Renkler</a> sekmesinden değiştirebilirsin.</p>`, `<p class="not">The base colors are the zone colors. Change them in the <a href="#" data-git="renkler" style="color:var(--vurgu)">Colors</a> tab.</p>`);
+  if (id === "donanim") h += T(`<p class="not">Klavyenin içine gömülü dalga. Program kapalıyken de çalışır, hızı ve rengi değiştirilemez.</p>`, `<p class="not">The wave built into the keyboard. It keeps running when the app is closed; its speed and colors can't be changed.</p>`);
+  if (ef && ef.muzik) h += T(`<p class="not">Ayarları <a href="#" data-git="muzik" style="color:var(--vurgu)">Müzik</a> sekmesinde.</p>`, `<p class="not">Its settings are in the <a href="#" data-git="muzik" style="color:var(--vurgu)">Music</a> tab.</p>`);
+  if (id === "sabit") h += T(`<p class="not">Her bölge kendi renginde sabit yanar. Renkleri <a href="#" data-git="renkler" style="color:var(--vurgu)">Renkler</a> sekmesinden seç.</p>`, `<p class="not">Each zone stays lit in its own color. Pick the colors in the <a href="#" data-git="renkler" style="color:var(--vurgu)">Colors</a> tab.</p>`);
   ay.innerHTML = h;
   const hz = $("#hiz");
   if (hz) { araliK(hz); hz.oninput = () => { araliK(hz); sahne().hiz = +hz.value; gonder({ k: "sahne", v: { hiz: +hz.value } }); }; hz.onpointerdown = () => surukleniyor = true; hz.onpointerup = () => surukleniyor = false; }
@@ -597,18 +633,18 @@ function temaKart(t, benim) {
   const aktif = S.ayarlar.son_tema === t.ad;
   return `<button class="tk${aktif ? " aktif" : ""}" data-tema="${encodeURIComponent(t.ad)}">
     <div class="serit">${renkler.map(c => `<i style="background:${c}"></i>`).join("")}</div>
-    <b>${t.ad.replace(/[<>&]/g, "")}</b><small>${ef ? ef.ad.replace("Müzik · ", "♪ ") : ""}</small>
-    ${benim ? `<span class="sil" data-sil="${encodeURIComponent(t.ad)}" title="Sil">×</span>` : ""}</button>`;
+    <b>${(t.etiket || t.ad).replace(/[<>&]/g, "")}</b><small>${ef ? ef.ad.replace(/^(Müzik|Music) · /, "♪ ") : ""}</small>
+    ${benim ? `<span class="sil" data-sil="${encodeURIComponent(t.ad)}" title="${T("Sil", "Delete")}">×</span>` : ""}</button>`;
 }
 function temalariCiz() {
   const k = $("#tema-kap"), kaydir = k.scrollTop;
   const benim = S.ayarlar.temalarim;
   k.innerHTML = `
-    <h3>Temalarım</h3>
-    <div class="kaydet"><input id="tema-ad" maxlength="30" placeholder="Şu anki görünüme bir ad ver…"><button class="btn" id="tema-kaydet">Kaydet</button>
-      <span class="not" style="margin-left:8px">Kısayollar <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> / <kbd>J</kbd> bunlar arasında da gezer.</span></div>
+    <h3>${T("Temalarım", "My themes")}</h3>
+    <div class="kaydet"><input id="tema-ad" maxlength="30" placeholder="${T("Şu anki görünüme bir ad ver…", "Name the current look…")}"><button class="btn" id="tema-kaydet">${T("Kaydet", "Save")}</button>
+      <span class="not" style="margin-left:8px">${T("Kısayollar <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> / <kbd>J</kbd> bunlar arasında da gezer.", "<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> / <kbd>J</kbd> cycle through these too.")}</span></div>
     ${benim.length ? `<div class="tema-izgara">${benim.map(t => temaKart(t, true)).join("")}</div>` : ""}
-    <h3>Hazır temalar</h3>
+    <h3>${T("Hazır temalar", "Built-in themes")}</h3>
     <div class="tema-izgara">${S.hazirTemalar.map(t => temaKart(t, false)).join("")}</div>`;
   k.scrollTop = kaydir;
   k.querySelectorAll("[data-tema]").forEach(b => b.onclick = e => {
@@ -622,11 +658,11 @@ function temalariCiz() {
 
 /* ---------- Müzik ---------- */
 const MUZIK_PALET = [
-  ["Ekolayzır", ["#00ff2a", "#00ff2a", "#c8ff00", "#ffd000", "#ff6000", "#ff0010"]],
+  [T("Ekolayzır", "Equalizer"), ["#00ff2a", "#00ff2a", "#c8ff00", "#ffd000", "#ff6000", "#ff0010"]],
   ["Neon", ["#ff00c8", "#00e5ff", "#ffe600", "#7a00ff"]],
-  ["Okyanus", ["#0018ff", "#0070ff", "#00c8ff", "#b4fff6"]],
-  ["Ateş", ["#ff0000", "#ff3c00", "#ff8a00", "#ffd000"]],
-  ["Beyaz", ["#ffffff"]],
+  [T("Okyanus", "Ocean"), ["#0018ff", "#0070ff", "#00c8ff", "#b4fff6"]],
+  [T("Ateş", "Fire"), ["#ff0000", "#ff3c00", "#ff8a00", "#ffd000"]],
+  [T("Beyaz", "White"), ["#ffffff"]],
 ];
 function paletRenkleri(liste) {
   if (liste.length === 1) return Array(8).fill(liste[0]);

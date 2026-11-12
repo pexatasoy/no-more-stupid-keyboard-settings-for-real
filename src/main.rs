@@ -1,4 +1,4 @@
-//! Klavye Işık — SteelSeries Apex 3 TKL için hafif ışık ayarı uygulaması (SteelSeries GG gerekmez).
+//! NoMoreStupidKeyboardSettingsForReal — SteelSeries Apex 3 / Apex 3 TKL için hafif ışık uygulaması (SteelSeries GG gerekmez).
 //!
 //! İş parçacıkları:
 //! - motor.rs: klavyeyi bulur, ayarı basar, efektleri oynatır, takılınca yeniden basar
@@ -9,6 +9,7 @@
 
 mod ayarlar;
 mod cihaz;
+mod dil;
 mod efekt;
 mod komut;
 mod motor;
@@ -29,13 +30,15 @@ use std::sync::Arc;
 
 fn main() {
     #[cfg(windows)]
+    tepsi::eski_surumu_kapat();
+    #[cfg(windows)]
     if !tepsi::tek_ornek() {
         // Zaten açıksa onun penceresini öne getir.
         tepsi::digerini_goster();
         return;
     }
     let a = ayarlar::Ayarlar::yukle();
-    gunluk!("Klavye Işık {} başlıyor", env!("CARGO_PKG_VERSION"));
+    gunluk!("{} {} başlıyor", dil::AD, env!("CARGO_PKG_VERSION"));
     let o = Arc::new(Ortak::yeni(a));
     {
         let o = o.clone();

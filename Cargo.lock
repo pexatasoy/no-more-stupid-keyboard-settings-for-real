@@ -1130,21 +1130,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "klavye-isik"
-version = "1.0.1"
-dependencies = [
- "global-hotkey",
- "hidapi",
- "serde",
- "serde_json",
- "tao",
- "tray-icon",
- "windows 0.62.2",
- "winresource",
- "wry",
-]
-
-[[package]]
 name = "kuchikiki"
 version = "0.8.8-speedreader"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1359,6 +1344,21 @@ name = "new_debug_unreachable"
 version = "1.0.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "650eef8c711430f1a879fdd01d4745a7deea475becfb90269c06775983bbf086"
+
+[[package]]
+name = "no-more-stupid-keyboard-settings-for-real"
+version = "1.1.0"
+dependencies = [
+ "global-hotkey",
+ "hidapi",
+ "serde",
+ "serde_json",
+ "tao",
+ "tray-icon",
+ "windows 0.62.2",
+ "winresource",
+ "wry",
+]
 
 [[package]]
 name = "nodrop"

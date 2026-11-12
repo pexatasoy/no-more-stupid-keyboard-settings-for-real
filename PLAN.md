@@ -4,7 +4,7 @@ Efe'nin SteelSeries Apex 3 TKL klavyesi için SteelSeries GG'siz ışık uygulam
 
 ## Durum (2026-11-09)
 - 1.0.1 yayında (WebView2Loader.dll exe içine gömülü, bkz. src/yukleyici.rs): https://atasoy.dev/indir/klavye-isik-8185ed962678/KlavyeIsik.exe (`/var/www/atasoy-dev/indir/…`, Caddy'ye dokunmadan)
-- Gerçek klavyede HENÜZ denenmedi — ilk geri bildirim bekleniyor.
+- Efe gerçek klavyesinde AKTİF kullanıyor (2026-11-12 teyit).
 
 ## Yapı
 - Rust; `x86_64-pc-windows-gnu` sunucuda çapraz derlenir: `cargo build --release --target x86_64-pc-windows-gnu`

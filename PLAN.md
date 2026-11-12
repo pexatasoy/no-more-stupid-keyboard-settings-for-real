@@ -1,5 +1,7 @@
 # NoMoreStupidKeyboardSettingsForReal (eski adı: Klavye Işık)
 
+> 🌍 **Bu repo PUBLIC (açık kaynak, 2026-11-13).** Her commit herkese açık: sır, müşteri bilgisi, kişisel not yazma; commit mesajları İngilizce.
+
 Ad Efe'nin (2026-11-12). Açık kaynağa hazırlanıyor: README/LICENSE (GPL-2.0-or-later)/docs İngilizce; repo Efe "aç" deyince public olur.
 Arayüz iki dilli (`src/dil.rs`): Windows dili Türkçeyse TR, değilse EN + ABD ANSI klavye çizimi; `NMSKS_DIL=tr|en` ezer.
 1.1.0 ilk açılışta 1.0.x'ten taşır: `%APPDATA%\KlavyeIsik` → `%APPDATA%\NoMoreStupidKeyboardSettingsForReal`, açılış kaydı, açık kalan KlavyeIsik.exe kapatılır (`tepsi::eski_surumu_kapat`).
